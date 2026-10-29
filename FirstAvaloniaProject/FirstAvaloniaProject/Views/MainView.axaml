@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:FirstAvaloniaProject.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="FirstAvaloniaProject.Views.MainView"
+             x:DataType="vm:MainViewModel">
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+    
+    <StackPanel Margin="30" Spacing="15" Width="350" HorizontalAlignment="Center" VerticalAlignment="Top">
+       
+        <TextBlock 
+            Text="{Binding Display}" 
+            Background="BlueViolet"
+            Foreground="White"
+            FontSize="50"
+            TextAlignment="Center"
+            TextWrapping="Wrap"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top" />
+        
+        <TextBox 
+            TextAlignment="Center"
+            PlaceholderText="Inserisci il tuo nome"
+            Text="{Binding Name}"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center" />
+        
+        <Button 
+            Content="{Binding ButtonText}"
+            Command="{Binding LoginCommand}"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center" />
+        
+    </StackPanel>
+             
+</UserControl>
