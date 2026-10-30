@@ -35,6 +35,14 @@
             HorizontalAlignment="Stretch"
             HorizontalContentAlignment="Center" />
         
+        <ListBox
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="BlueViolet"
+            ItemsSource="{Binding Lista}"
+            SelectedItem="{Binding AggiungiCommand}"
+            />
+        
     </StackPanel>
              
 </UserControl>

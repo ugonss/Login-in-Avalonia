@@ -1,8 +1,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
 namespace FirstAvaloniaProject.ViewModels;
+
+using CommunityToolkit.Mvvm.Input;
 
 public partial class MainViewModel : ObservableObject
 {
@@ -12,31 +14,44 @@ public partial class MainViewModel : ObservableObject
 
     [ObservableProperty] private string _buttonText = "LOGIN";
 
-    private bool _logged = false;
+    [ObservableProperty] private bool _logged = false;
+    
+    [ObservableProperty] ObservableCollection<string> _lista = new();
+
+    [RelayCommand] 
+    private void Aggiungi() 
+    { 
+        Lista.Add("Nuovo Elemento"); 
+    }
 
     [RelayCommand]
     private void Login()
     {
+
         if (!_logged)
         {
             if (string.IsNullOrWhiteSpace(Name))
             {
-                Display = Display; 
+                Display = Display;
                 return;
             }
-
-            Display = $"Benvenuto/a {Name}";     
+            
+            
+            
+            Display = $"Benvenuto/a {Name}";
             ButtonText = "LOGOUT";
             _logged = true;
         }
         else
         {
-            Display = "Arrivederci";          
+            Display = "Arrivederci";
             Name = "";
             ButtonText = "LOGIN";
             _logged = false;
         }
 
-        
+
     }
+
+
 }
